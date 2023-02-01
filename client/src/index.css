@@ -5,6 +5,11 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  
+  background: center fixed url("./img/bgDogs.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* background-size: 100% 100vh; */
 }
 
 code {

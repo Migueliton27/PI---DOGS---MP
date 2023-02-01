@@ -30,7 +30,10 @@ sequelize.models = Object.fromEntries(capsEntries);
 
 // En sequelize.models están todos los modelos importados como propiedades
 // Para relacionarlos hacemos un destructuring
-const { Dog } = sequelize.models;
+const { Race, Temper } = sequelize.models;
+Race.belongsToMany(Temper, {through: 'TemperRace'})
+Temper.belongsToMany(Race, {through: 'TemperRace'})
+
 
 // Aca vendrian las relaciones
 // Product.hasMany(Reviews);
@@ -39,3 +42,8 @@ module.exports = {
   ...sequelize.models, // para poder importar los modelos así: const { Product, User } = require('./db.js');
   conn: sequelize,     // para importart la conexión { conn } = require('./db.js');
 };
+/*
+La relación entre ambas entidades debe ser de muchos a muchos ya que una raza de perro puede tener varios "temperamentos" 
+en simultaneo y, a su vez, un "temperamento" puede corresponder a múltiples razas de perro distintas. Por ejemplo la raza pug es 
+docil, inteligente y sociable (entre otras). Pero a su vez existen otras razas de perro que también son sociables o inteligentes.
+*/

@@ -1,0 +1,21 @@
+.box{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: auto auto auto;
+    
+}
+
+.Cards{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    /* display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center; */
+  
+}
+
+.boxButton{
+    margin: 80px
+}

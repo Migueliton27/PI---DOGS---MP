@@ -1,0 +1,97 @@
+/* .Card{
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    align-items: center;
+    justify-content: center;
+    width: 300px;
+    height: 300px;
+    margin: 10px;
+    border: 2px;
+    padding: 1em;
+    border: 2px solid black;
+    border-radius: 10px;
+
+} */
+
+/* .boxImg{
+    width: 250px;
+    height: 250px;
+}
+
+/* .boxFront{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    overflow: hidden;
+    transition: .5s;
+} */
+
+/* .img{
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}  */
+
+
+.Card {
+    position: relative;
+    /* border: 2px solid black; */
+    width: 300px;
+    height: 300px;
+    margin: 10px;
+}
+
+.Card .face{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: .5s;
+}
+
+.Card .boxFront{
+    
+    transform: perspective(600px) rotateY(0deg);
+    box-shadow: 0 5px 10px #000;
+}
+
+.Card .boxFront .img{
+    position: absolute;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.Card .boxFront .h1{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 40px;
+    line-height: 45px;
+    color: #fff;
+    
+    background: rgba(0,0,0,.4);
+}
+
+.Card .boxBack{
+    background: #fff;
+    transform: perspective(600px) rotateY(180deg);
+    box-shadow: 0 5px 10px #000;
+
+    display:flex;
+    flex-direction:column;
+    justify-content: space-between;
+}
+
+.Card:hover .boxFront{
+    transform: perspective(600px) rotateY(180deg);
+}
+
+.Card:hover .boxBack{
+    transform: perspective(600px) rotateY(360deg);
+}

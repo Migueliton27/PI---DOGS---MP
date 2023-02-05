@@ -1,33 +1,50 @@
 import React from 'react'
 import Card from './Card.jsx';
-import {Link} from 'react-router-dom'
+// import {Link} from 'react-router-dom'
 import {useState,useEffect} from 'react'
-import stylesCard from '../css/Card.module.css'
+import {useDispatch, useSelector} from 'react-redux'
+import {GET_DOGS} from "../redux/actions"
+// import stylesCard from '../css/Card.module.css'
 import stylesCards from '../css/Cards.module.css'
-import { connect } from 'react-redux';
 import Pagination from './Pagination'
-import {ADD,DELETE} from '../redux/actions.js'
 
 const CARDS_PER_PAGE = 8 
 
 function Cards(props) {
-    const [dogs, setDogs] = useState([])
+   
+
+    const dispatch = useDispatch()
+    const dogs = useSelector((state)=> state.allDogs)
+    useEffect(()=>{
+         dispatch(GET_DOGS())
+        //setDogs([...dogsSelect])
+    },[])
+ 
+    
+    //const  [dogs, setDogs] = useState(dogsSelect)
+    
     const [pagIndex, setPagIndex] = useState(0)
     const [numPag, setNumPag] = useState(1)
 
-    useEffect(()=>{
-        fetch(`http://localhost:3001/dogs`)
-        .then((response) => response.json())
-        .then(data =>{
-            console.log(data)
-            setDogs([...data])
-        }).catch((err)=> console.log(err))
-    },[])
+
+   
+
+    console.log('CARDS ---> dogs',dogs)
+   
+
+
+    // useEffect(()=>{
+    //     dispatch(GET_DOGS())      
+    //     setDogs(dogsSelect)
+    // },[])
+
+    
+  
 
     const nextHandler = (e)=>{
         if((pagIndex + CARDS_PER_PAGE) <= dogs.length ){
             setPagIndex(pagIndex + CARDS_PER_PAGE)
-            setNumPag(numPag++)
+            setNumPag(numPag+1)
         }
         
     }
@@ -35,17 +52,28 @@ function Cards(props) {
     const prevHandler = (e)=>{
         if(pagIndex !== 0){
             setPagIndex(pagIndex - CARDS_PER_PAGE)
-            setNumPag(numPag--)
+            setNumPag(numPag-1)
         }
         
     }
 
-    console.log(dogs)
+    // let numHandler = (e)=>{
+    //     const num = e.target.value
+    //     const index = CARDS_PER_PAGE*(num-1)
+    //     setPagIndex(index)
+        
+    //     if(this.indexButton>=4){
+    //         console.log('que putas', this.indexButton)
+    //     }
+        
+    // }
+   
+    //console.log(dogs)
     return(
         <>
             <div className={stylesCards.box}>
                 {
-                    dogs?
+                    dogs.length?
                     dogs.slice(pagIndex, pagIndex + CARDS_PER_PAGE).map((dog,index)=>{
                         return (
                             // <div key={index} className={stylesCard.Card}>
@@ -68,9 +96,12 @@ function Cards(props) {
                 
             </div>
             <Pagination 
+                numPag={numPag}
+                setNumPag={setNumPag}
                 nextHandler={nextHandler} 
                 prevHandler={prevHandler}
-                numDogs={dogs.length}
+                numDogs={dogs.length} 
+                setPagIndex={setPagIndex}
             />
             
         </>

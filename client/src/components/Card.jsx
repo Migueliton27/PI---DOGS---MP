@@ -1,8 +1,8 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
-import {useState,useEffect} from 'react'
-import { connect } from 'react-redux';
-import {ADD,DELETE} from '../redux/actions.js'
+// import {Link} from 'react-router-dom'
+// import {useState,useEffect} from 'react'
+// import { connect } from 'react-redux';
+// import {ADD,DELETE} from '../redux/actions.js'
 import stylesCard from '../css/Card.module.css'
 
 function Card(props) {

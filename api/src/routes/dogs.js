@@ -89,18 +89,41 @@ router.get('/:idRaza', async(req,res)=>{
 router.post('/',async(req,res)=>{
     const {id,name,tempers,height,weight,life_span,image} = req.body
     try {
-        const race= {
-            id,
-            name,
-            height,
-            weight,
-            life_span,
-            image
+        const dogExistent = await Race.findAll({
+            whre: {
+                name
+            }
+        })
+        console.log(dogExistent)
+        if(dogExistent.length === 0){
+            const race= {
+                id,
+                name,
+                height,
+                weight,
+                life_span,
+                 
+            }
+             
+            const d = await Race.create(race)
+            tempers?
+            tempers.split(',').forEach(async(temper)=>{
+                const temperDB = await Temper.findAll({
+                    where: {
+                        name : temper
+                    }
+                })
+                //Por el momento es sin verficiar si existe el temperamento
+                await d.addTemper(temperDB)
+            }):null
+            return res.status(200).send(race)
         }
-         
-        const d = await Race.create(race)
+        else{
+            return res.status(400).send({ErrorMessage: 'Race exists'})
+        }
         
-        return res.status(200).send(race)
+        
+        
     } catch (error) {
           return res.status(400).send({error:error.message})
     }

@@ -66,7 +66,7 @@ export default function Pagination({setPagIndex,numPag,...props}) {
 
     return(
         <div className= {stylesCards.boxButton}>
-                <button>Estamos pag {numPag}</button>
+                {/* <button>Estamos pag {numPag}</button> */}
                 <button className={stylesCards.next} onClick={props.prevHandler}>{'<'}</button>
                 
                    { buttonPage.slice(indexButton,indexButton + 4).map((button, index)=>{

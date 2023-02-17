@@ -26,7 +26,7 @@ function SearchBar(props) {
     return (
         <div className={stylesSearch.search}>
             <input type='text' onChange={handleInputChange} value={dog} placeholder='Ingrese el nombre' name='search'/>
-            <button onClick={onClick}>Search</button>
+            <button className={stylesSearch.buttonSearch} onClick={onClick}>Search</button>
         </div>
     );
 }

@@ -75,7 +75,7 @@ function Tempers(props) {
                     {/* <li className={`${selectTemper ?  stylesTempers.activeTemper : null}`} onClick={showTemper}> */}
                         
                         <FontAwesomeIcon icon={faDog}/>
-                        <a onClick={showTemper}>  TEMPERATURAS</a>
+                        <a onClick={showTemper}>  TEMPERAMENTOS</a>
                         <div className={`${stylesTempers.containerBox} ${stylesTempers.containerTempers}
                         ${selectTemper ?  stylesTempers.activeTemper : null}`} >
                             <div className={stylesTempers.searchTemper}>

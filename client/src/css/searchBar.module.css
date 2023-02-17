@@ -1,4 +1,31 @@
 .search{
     position: relative;
     margin-left: 60px;
+    margin-top: 5px;
+}
+
+.search input{
+    border: none;
+    border-radius: 12px;
+    padding: 6px;
+}
+.search .buttonSearch{
+    margin-left: 4px;
+
+
+    width:70px;
+    border-radius: 15px;
+    height: 20px;
+    background: #9b7239;
+    color: #ffffd5;
+    font-size: 14px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: all .5s;
+}
+
+.buttonSearch:hover{
+    color: #7a551c;
+    background: #ffffd5;
 }

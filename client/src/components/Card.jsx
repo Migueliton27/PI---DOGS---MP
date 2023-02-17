@@ -18,7 +18,7 @@ function Card(props) {
                 <div className={`${stylesCard.boxBack} ${stylesCard.face} `} >
                     <h2>{props.name}</h2>
                     
-                    <h2>{props.weight}</h2>
+                    <h2>Weight: {props.weight}</h2>
                     
                     <Link to={`/detail/${props.id}`}>
                         <h2 className={stylesCard.view}>View detail</h2>

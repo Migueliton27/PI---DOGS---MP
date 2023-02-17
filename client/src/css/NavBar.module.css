@@ -169,6 +169,7 @@
     transition: all .5s;
 }
 .reset{
+    margin-top: 5px;
     margin-left: 20px;
 }
 

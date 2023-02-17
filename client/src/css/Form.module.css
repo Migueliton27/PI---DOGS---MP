@@ -79,6 +79,21 @@ h4{
     margin: auto;
     margin-top: 20px;
     margin-bottom: 30px;
+
+    border-radius: 30px;
+    background: #9b7239;
+    color: #ffffd5;
+    font-size: 15px;
+    border: none;
+    height: 30px;
+    outline: none;
+    cursor: pointer;
+    transition: all .5s;
+}
+
+.btnSubmit:hover{
+    color: #7a551c;
+    background: #ffffd5;
 }
 
 

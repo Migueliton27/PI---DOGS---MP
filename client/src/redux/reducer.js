@@ -7,7 +7,7 @@ const initialState = {
     temperaments:[],
     charById: {},
     originalDogs:[],
-    errorDog:'',
+    errorDog:"",
     resPost: {}
 }
 

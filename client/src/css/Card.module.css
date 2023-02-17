@@ -104,3 +104,32 @@ h2{
 .Card:hover .boxBack{
     transform: perspective(600px) rotateY(360deg);
 }
+
+.boxBack {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.boxBack .view{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    background: #9b7239;
+    padding: 5px;
+    color: #ffffd5;
+    width: 100px;
+    height: 50px;
+    border-radius:10px;
+    transition: all .5s;
+}
+
+.view:hover{
+    color: #7a551c;
+    background: #5b7d83;
+}

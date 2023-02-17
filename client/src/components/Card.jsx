@@ -17,12 +17,11 @@ function Card(props) {
                 </div>
                 <div className={`${stylesCard.boxBack} ${stylesCard.face} `} >
                     <h2>{props.name}</h2>
-                    <h2>{props.height}</h2>
-                    <h2>W:{props.weight}</h2>
-                    <h2>{props.life_span}</h2>
-                    <h1>asd</h1>
+                    
+                    <h2>{props.weight}</h2>
+                    
                     <Link to={`/detail/${props.id}`}>
-                        <h2>View detail</h2>
+                        <h2 className={stylesCard.view}>View detail</h2>
                     </Link>
                     
                 </div>

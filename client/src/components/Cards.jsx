@@ -18,8 +18,9 @@ function Cards(props) {
     const dogs = useSelector((state)=> state.allDogs)
     const page = useSelector((state)=> state.pag)
     const errorDog = useSelector((state)=>state.errorDog)
+    console.log('este es',Object.keys(errorDog)!==0)
     useEffect(()=>{
-        if(errorDog!=""){
+        if(errorDog!==""){
             console.log(errorDog)
             alert(errorDog.error)
             dispatch(resetErrorDogs())
@@ -69,7 +70,7 @@ function Cards(props) {
     console.log('estos son dogs',dogs)
     return(
         <>
-            {/* <Alert></Alert> */}
+            {/* {Object.keys(errorDog)!==0?<Alert message={errorDog.error}></Alert>:null} */}
             <section className={stylesCards.section}>
             </section>
 

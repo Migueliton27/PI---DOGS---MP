@@ -168,6 +168,9 @@
     cursor: pointer;
     transition: all .5s;
 }
+.reset{
+    margin-left: 20px;
+}
 
 
 

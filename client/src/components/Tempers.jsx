@@ -57,7 +57,7 @@ function Tempers(props) {
     }
 
     const racesDogs = useSelector(state => state.originalDogs).map((dog)=>dog.name)
-
+    console.log('pieasdlasd', temperaments)
     // console.log('Races-->', racesDogs)
    // console.log('SELECTED IS', optionTemper.trim(),'5')
     console.log('opcion',inputTemper)

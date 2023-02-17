@@ -1,133 +1,86 @@
 const { Router } = require('express');
-const {Op} = require('sequelize')
+const { Op } = require('sequelize')
 const axios = require('axios')
-const {Race, Temper} = require('../db.js');
+const { Race, Temper } = require('../db.js');
 const Dog = require('../models/Dog.js');
+const {searchById,getAllDogs,searchByName,postDog,getByApi,getByBD} = require('../controllers/dogControllers')
+
+
 //const { Op, Character, Role } = require('../db');
 const router = Router();
 
 
-router.get('/', async(req,res)=>{
-    const {name} = req.query 
+router.get('/', async (req, res) => {
+    const { name,origin  } = req.query
     try {
-        
-        // let races = await Race.findAll()
-        
-        //     if(races.length===0) {
-        //         let apiDogs = await axios.get('https://api.thedogapi.com/v1/breeds')
-        //         apiDogs = apiDogs.data
-        //         const mapDogs = apiDogs.map((el)=>{
-        //             return{
-        //                 id: el.id,
-        //                 name:el.name,
-        //                 weight:el.weight.metric,
-        //                 height: el.height.metric,
-        //                 life_span: el.life_span
-        //             }
-        //         })
-        //         races = await Race.bulkCreate(mapDogs) 
-        //         return res.status(200).send(races)
-        //         //return res.status(200).send(apiDogs)
-        //     }
-        
-      if(!name){
-        let races = await Race.findAll()
-        if(races.length===0) {
-            let apiDogs = await axios.get('https://api.thedogapi.com/v1/breeds')
-            apiDogs = apiDogs.data
 
+        if (!name) {
 
-            const mapDogs = apiDogs.map((el)=>{
-                            
-                            return{
-                                // id: el.id,
-                                name:el.name,
-                                weight:el.weight.metric,
-                                height: el.height.metric,
-                                life_span: el.life_span,
-                                image:el.image.url
-                            }
-                        })
+            if(origin && origin==='api') return res.status(200).send(await getByApi())
+           // origin && origin==='api'? res.status(200).send(await getByApi()):null
+            if(origin && origin==='BD')return res.status(200).send(await getByBD())
+            const dogs = await getAllDogs();
+            //races.length>0 ? res.status(200).send([...mapDogs,...races]) :  res.status(200).send(mapDogs)
+            res.status(200).send(dogs)
 
-            
-            
-            races = await Race.bulkCreate(mapDogs) 
-            
-            //console.log(apiDogs)
-            //return res.status(200).send(apiDogs)
+        } else if (name) {
+            const filterDogs = await searchByName(name)
+
+            return res.status(200).send(filterDogs)
         }
-        return res.status(200).send(races)
-      } else if(name) {
-        const raceFil = await Race.findAll({
-            where: {
-                name:{
-                    [Op.iLike] : `%${name}%`
-                }
-            }
-        })
 
-        return res.status(200).send(raceFil)
-      }
-      
 
     } catch (error) {
-        return res.status(400).send({error:error.message})
+        return res.status(400).send({ error: error.message })
     }
 })
 
-router.get('/:idRaza', async(req,res)=>{
-    const{idRaza} = req.params
+router.get('/:id' , async (req, res) => {
+    const { id } = req.params
+   
     try {
-        const raceId = await Race.findByPk(idRaza)
+        const raceId = await searchById(id)    
+        
         return res.status(200).send(raceId)
     } catch (error) {
-        return res.status(400).send({error:error.message})
+        return res.status(400).send({ error: error.message })
     }
 })
 
 
-router.post('/',async(req,res)=>{
-    const {id,name,tempers,height,weight,life_span,image} = req.body
-    try {
-        const dogExistent = await Race.findAll({
-            whre: {
-                name
+const checkTemper = async(req,res, next)=>{
+    const {tempers} = req.body
+    //console.log(tempers,'GONORREA')
+    tempers?
+    tempers.split(',').forEach(async (temper)=>{
+        const temperDB = await Temper.findAll({
+            where: {
+                name: temper
             }
         })
-        console.log(dogExistent)
-        if(dogExistent.length === 0){
-            const race= {
-                id,
-                name,
-                height,
-                weight,
-                life_span,
-                 
-            }
-             
-            const d = await Race.create(race)
-            tempers?
-            tempers.split(',').forEach(async(temper)=>{
-                const temperDB = await Temper.findAll({
-                    where: {
-                        name : temper
-                    }
-                })
-                //Por el momento es sin verficiar si existe el temperamento
-                await d.addTemper(temperDB)
-            }):null
-            return res.status(200).send(race)
-        }
-        else{
-            return res.status(400).send({ErrorMessage: 'Race exists'})
-        }
         
-        
+        if(temperDB.length == 0){
+            await Temper.create({name:temper})
+        }
+    }):null
+
+    next();
+}
+
+router.post('/' ,async (req, res) => {//INTENTEMOS USAR MIDDLEWARE DESPUES
+    // const { name, tempers, height, weight, life_span, image } = req.body
+    try {
+            
+        const race = await postDog(req.body)
+        return res.status(200).send(race)
         
     } catch (error) {
-          return res.status(400).send({error:error.message})
+        return res.status(400).send({error: error.message} )
     }
 })
+
+
+
 
 module.exports = router
 
@@ -140,3 +93,7 @@ Incluir los temperamentos asociados
 Recibe los datos recolectados desde el formulario controlado de la ruta de creación de raza de perro por body
 Crea una raza de perro en la base de datos relacionada con sus temperamentos
 */
+
+
+
+

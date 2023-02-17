@@ -1,0 +1,85 @@
+
+.landing{
+    background: #bba694;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+
+    /* display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows: repeat(5,1fr); */
+}
+
+.imgLand{
+    position: absolute;
+    background: url('../img/bgLand.svg');
+    background-size: cover;
+    width: 700px;
+    height: 700px;
+    bottom: 0;
+    right: 0;
+    z-index: 2;
+    /* grid-area: 1/2/6/3; */
+
+}
+.textBox{
+    position: absolute;
+    text-transform: uppercase;
+    text-align: left;
+    left: 50px;
+    top:200px;
+    font-size: 30px;    
+    width: 700px;
+    height: 500px;
+    font-family: 'Lora', serif;
+    /* grid-area: 1/1/4/2; */
+    
+}
+
+.textBox h1{
+    font-weight: 800;
+    color: #ffffd5;
+}
+
+.textBox  h1 span{
+    background: #9b7239;
+    color: #ffffd5;
+    padding: 0 10px;
+
+}
+
+.textBox button{    
+    margin-top: 50px;
+    width: 200px;
+    border-radius: 30px;
+    height: 50px;
+    background: #9b7239;
+    color: #ffffd5;
+    font-size: 15px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: all .5s;
+
+}
+
+.textBox button:hover{
+    color: #7a551c;
+    background: #ffffd5;
+}
+
+.circle{
+    position: absolute;
+    z-index: 1;
+    right: 0;
+    bottom: 0;
+    clip-path: circle(100% at 100% 100%);
+    background: #9b7239;
+    width: 650px;
+    height: 650px;
+}
+
+.button{
+    grid-area: 4/1/6/2;
+}

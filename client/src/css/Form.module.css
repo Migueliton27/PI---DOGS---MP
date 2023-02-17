@@ -6,16 +6,35 @@
     display: flex;
     flex-direction: row;
     margin: auto;
-    width: 700px;
-    height: 600px;
+    width: 900px;
+    /* height: 600px; */
+    height: fit-content;
     /* padding-left: 50px;
     padding-right: 50px; */
-    border: 1px solid black;
+    /* border: 1px solid black; */
+    margin-bottom: 100px;
 }
 
 .containerImg{
-    width: 50%;
+    position: relative;
+    width: 55%;
+    background: url('../img/bgHuellas.jpg');
+    /* background-size: cover; */
+
 }
+
+/* .containerImg div{
+    width: 350px;
+    height: 300px;
+    border: 1px solid black;
+    background-repeat: no-repeat ;
+    background-size:cover;
+    background-position: center;
+    margin: auto;
+    margin-top: 150px;
+} */
+
+
 
 .container{
     position: relative;
@@ -25,8 +44,8 @@
     border-radius: 10px;
     flex-direction: column;
     /* border: 1px solid green; */
-    width: 50%;
-    height: 100%;
+    width: 45%;
+    height: fit-content;
     /* margin: auto; */
     align-content: center;
     /* justify-content: center; */
@@ -53,9 +72,13 @@ h4{
     
 }
 
-.containerGlobal .container .btnSubmit{
+ .container .btnSubmit{
     position: relative;
-    top: 45px;
+    /* top: 45px; */
+    width: 50%;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 30px;
 }
 
 
@@ -91,3 +114,114 @@ h4{
     transform-origin: left top;
 
 }
+
+.containerTemps{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    margin: auto;
+    margin-top: 15px;
+}
+
+.containerTemps .add{
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    left: 10px;
+    margin-top: 5px;
+    border: 1px solid black;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.containerTemps .deleteTemper{
+    width: 15px;
+    margin: auto 0 auto 10px;
+    font-size: 13px;
+    text-align: center;
+    height: 15px;
+    border: 1px solid black;
+}
+
+.containerTemps input,
+.containerTemps select {
+    position: relative;
+    margin-top: 5px;
+    background: #F2F2F2;
+    padding: 6px;
+    border: none;
+    border-bottom: 3px solid black;
+    outline: 20px;
+    transition: all 0.3s;
+    width: 150px;
+    margin-left: 50px;
+}
+
+.container .containerTemps input:focus,
+.container .containerTemps select:focus {
+    border-bottom: 2px solid #17a288;
+}
+
+.msgAlert{
+    border: 1px solid black;
+    background: white;
+    z-index:10;
+    width: 120px;
+    font-size:12px;
+    position:absolute;
+    left:-45px;
+    border-radius: 20px;
+    padding: 10px;
+    top:-95px;
+    display:block;
+}
+
+.msgAlert::before {
+    content:'';
+    position:absolute;
+    /* width: 15px;
+    height: 15px; */
+    top: 100%;
+    left:57px;
+    /* background: black; */
+    border-left:9px solid transparent;
+    border-top:18px solid black;
+    border-right:9px solid transparent;
+    
+} 
+
+.error,
+.errorImg{
+    font-size: 12px;
+    color: red;
+    position: absolute;
+    text-align: left;
+    
+}
+
+.error{
+    top: 20px;
+}
+.errorImg{
+    top: 90px;
+}
+
+.temperOption{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    
+}
+
+/* content: '';
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border: 1px solid #333;
+    border-top: 1px solid #fff;
+    border-right: 1px solid #fff;
+    right: -20px;
+    top: 12px;
+    z-index: 100;
+    transform: roate(-45deg);*/

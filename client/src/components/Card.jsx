@@ -1,5 +1,5 @@
 import React from 'react'
-// import {Link} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 // import {useState,useEffect} from 'react'
 // import { connect } from 'react-redux';
 // import {ADD,DELETE} from '../redux/actions.js'
@@ -18,8 +18,13 @@ function Card(props) {
                 <div className={`${stylesCard.boxBack} ${stylesCard.face} `} >
                     <h2>{props.name}</h2>
                     <h2>{props.height}</h2>
-                    <h2>{props.weight}</h2>
+                    <h2>W:{props.weight}</h2>
                     <h2>{props.life_span}</h2>
+                    <h1>asd</h1>
+                    <Link to={`/detail/${props.id}`}>
+                        <h2>View detail</h2>
+                    </Link>
+                    
                 </div>
                 
                 
@@ -29,14 +34,3 @@ function Card(props) {
 }
 
 export default Card;
-{/* <div>
-                <div className={stylesCard.boxImg}>
-                    <img  src={props.image} alt="" className={stylesCard.img}/>
-                </div>
-                
-                <h2>{props.name}</h2>
-                <h2>{props.height}</h2>
-                <h2>{props.weight}</h2>
-                <h2>{props.life_span}</h2>
-                
-    </div> */}

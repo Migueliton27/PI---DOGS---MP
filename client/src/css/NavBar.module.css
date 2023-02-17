@@ -1,0 +1,178 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500&family=Roboto:wght@300;400;700&display=swap');
+
+.NavBar{
+    position: relative;
+    background: #bba694;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    z-index: 1;
+    padding: 5px 100px;
+    box-sizing: border-box;
+    /* background: white; */
+    transition: .5s;
+    /* border: 2px solid black; */
+    margin-bottom: 50px;
+
+}
+
+.NavBar ul{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    /* border: 2px solid black; */
+    text-align: center;
+}
+
+.NavBar ul li{
+    list-style: none;
+    
+}
+
+.NavBar ul li a{
+    list-style: none;
+    padding: 5px 20px;
+    text-transform: uppercase;
+    
+}
+
+ .containerFilter{
+    position: relative;
+    margin-left: 60px;
+    width: 150px;
+    height: 15px;
+}
+
+.NavBar .containerFilter .filter{
+    position: absolute;
+    top: 0;
+    left:0;
+    padding: 12px 20px;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    background: #fff;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+}
+
+.containerFilter::before{
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border: 1px solid #333;
+    border-top: 1px solid #fff;
+    border-right: 1px solid #fff;
+    right: -20px;
+    top: 12px;
+    z-index: 100;
+    transform: rotate(-45deg);
+}
+
+.containerFilter.active::before{
+    top: 18px;
+    transform: rotate(-225deg);
+}
+
+.NavBar  .options{
+    position: absolute;
+    top: 50px;
+    width: 100%;
+    background-color: #fff;
+    box-shadow: 0 30px 30px rgba(0,0,0,0.05);
+    border-radius: 10px;
+    display: none;
+    padding: 10px 20px 10px 20px;
+    overflow: hidden;
+}
+
+.NavBar  .options a{
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    /* padding: 5px; */
+}
+
+.options div:hover{
+    background: #F2F2F2;
+}
+
+.NavBar .active .options{
+    display: block;
+} 
+.NavBar .active .options div{
+    padding: 10px;
+    text-align: left;
+    border-radius: 10px;
+} 
+
+.containerFilter .options div a{
+    cursor: pointer;
+    padding: 5px;
+    text-align: right;
+    margin-top: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    /* padding: 12px 20px; */
+
+}
+/* 
+.land{
+    position: relative;
+    margin-left: auto;
+    /* position: relative; */
+    
+/* }
+.home{
+    position: relative;
+    margin-left: auto;
+    
+    
+} */ 
+
+.cont{
+    display: flex;
+    flex-direction: row;
+    width: 200px;
+    align-items: center;
+    margin-left: auto;
+    margin-right: 50px;
+    height: 100%;
+}
+
+.cont a{
+    text-decoration:none;
+}
+
+
+.land:hover,
+.home:hover,
+.reset:hover{
+    color:#7a551c;
+}
+
+.home,
+.land,
+.reset{
+    position: relative;
+    background: none;
+    font-weight: 800;
+    color: #ffffd5;
+    font-size: 17px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: all .5s;
+}
+
+
+
+/* .options div:hover{
+  background: #62baea;
+  color:  #fff;
+} */
+

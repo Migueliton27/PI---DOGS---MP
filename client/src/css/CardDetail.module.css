@@ -1,0 +1,180 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap');
+.container{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    width: 800px;
+    height: 500px;
+    border-radius: 30px;
+    /* background: url('../img/bg-cardD.jpg'); */
+    background: url('../img/bgHuellas.jpg');
+    margin: auto;
+}
+
+
+.container .boxImg{
+    position: relative;
+    width: 50%;
+    height: 300px;
+    overflow: hidden;
+    border-radius: 30px 0px 0 0;
+   
+    /* border: 1px solid black; */
+}
+
+.curve{
+    /* background: green; */
+    /* border: 1px solid black; */
+    z-index: 10;
+    top: 250px;
+    position: absolute;
+    height: 400px;
+    outline: none;
+    width: 100%;
+    bottom: 0;
+    background-size: cover;
+    background-position: center;
+}
+
+.boxImg .curve .img{
+    background: transparent;
+    object-fit: cover;
+}
+
+/* .curve::before{
+    content: '';
+    display: block;
+    position: absolute;
+    border-radius: 100% 50%;
+    width: 55%;
+    height: 100%;
+    background: url('../img/bgHuellas.jpg');
+    transform: translate(85%, 60%);
+
+} */
+
+/* .curve::after{
+    content: '';
+    display: block;
+    position: absolute;
+    border-radius: 50%;
+    width: 55%;
+    height: 100%;
+    background: url('../img/bgHuellas.jpg');
+    transform: translate(-0%, 0%);
+    z-index: 1;
+} */
+
+.container .boxImg img{
+    border-radius: 30px 0 0 0;
+    position: absolute;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    z-index: 1; 
+}
+
+.container .boxInfo{
+    position: relative;
+    margin-right: 0px;
+    background: white;
+    border-radius: 0 30px 30px 0;
+    height: 100%;
+    width: 50%;
+
+}
+.container .boxInfo .attributes{
+    position: absolute;
+    display: grid;
+    gap: 0;
+    grid-template-columns: repeat(3,1fr);
+    /* flex-direction: row; */
+    bottom: 0px;
+    background: #EC9B3B;
+    border-radius: 0 0 30px 0;
+    height: 150px;
+    width: 100%;
+}
+
+.container .boxInfo h1{
+    position: relative;
+    /* border: 1px solid black; */
+    text-align: left;
+    width: 300px;
+    left: 50px;
+    font-family: 'Lato';
+    font-size: 40px;
+}
+
+.container .boxInfo span,
+.container .boxInfo h5{
+    color: white;
+    font-family: 'Lato';
+    /* font-size: 25px; */
+    border-bottom-left-radius: 14px;
+    border-bottom-right-radius: 14px;
+}
+
+.container .boxInfo span{
+    margin-top: 50%;
+    font-size: 25px;
+    font-weight: 700;
+    
+}
+
+.container .boxInfo h5{
+    font-weight: 400;
+    
+}
+
+.container .boxInfo .attributes div {
+    /* position: relative; */
+    
+    padding: 25px 0 0 ;
+    
+}
+
+.container .boxInfo .attributes .atr1{
+    /* position: relative; */
+    border-right: 1px solid #BD7C2F;
+    
+    
+}
+.container .boxInfo .attributes .atr2{
+    border-right: 1px solid #BD7C2F;
+    
+}
+
+.boxInfo h4{
+    position: relative;
+    margin-top: 0px;
+    font-family: 'Lato';
+    /* font-size: 25px; */
+    border-bottom-left-radius: 14px;
+    border-bottom-right-radius: 14px;
+}
+
+.boxTempers{
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    /* flex-direction: column;
+    justify-content: start;
+    align-items: flex-start; */
+    padding: 10px 10px 0 50px;
+    
+    /* border: 1px solid black; */
+}
+
+.boxTempers div{
+    /* border: 1px solid black; */
+    background: #F2F2F2;
+    padding: 3px;
+    border: none;
+    border-bottom: 3px solid #17a288;
+    outline: 20px;
+    width: 150px;
+}
+

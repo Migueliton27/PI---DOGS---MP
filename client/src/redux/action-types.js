@@ -1,0 +1,11 @@
+export const GET_DOGS = 'GET_DOGS';
+export const GET_CHAR = 'GET_CHAR'
+export const GET_TEMPERAMENTS = 'GET_TEMPERAMENTS'
+export const FILTER_SEARCH = 'FILTER_SEARCH'
+export const ORDER = 'ORDER'
+export const SET_PAGE = 'SET_PAGE'
+export const FILTER_TEMPERAMENTS = 'FILTER_TEMPERAMENTS'
+export const FILTER_WEIGHT = 'FILTER_WEIGHT'
+export const POST_DOG = 'POST_DOG'
+export const ERROR_DOGS = 'ERROR_DOGS'
+export const GET_BY_API_BD = 'GET_BY_API_BD'
